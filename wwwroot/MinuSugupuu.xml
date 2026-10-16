@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<sugupuu xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="minuSugupuu.xsd">
+  <inimene synd="1949" elukoht="Tallinn">
+    <nimi>Tomara</nimi>
+    <roll>vanaema</roll>
+    <lapsed>
+      <inimene synd="1967" elukoht="Tallinn">
+        <nimi>Oksana</nimi>
+        <roll>ema</roll>
+        <lapsed>
+          <inimene synd="1990" elukoht="Tallinn">
+            <nimi>Julja</nimi>
+            <roll>õde</roll>
+            <lapsed>
+              <inimene synd="2020" elukoht="Tallinn">
+                <nimi>Alja</nimi>
+                <roll>õe tütar</roll>
+              </inimene>
+            </lapsed>
+          </inimene>
+          <inimene synd="1993" elukoht="Tallinn">
+            <nimi>Igor</nimi>
+            <roll>vend</roll>
+          </inimene>
+          <inimene synd="2005" elukoht="Tallinn">
+            <nimi>Timur</nimi>
+            <roll>mina</roll>
+          </inimene>
+        </lapsed>
+      </inimene>
+    </lapsed>
+  </inimene>
+</sugupuu>

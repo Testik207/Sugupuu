@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="sugupuu"><xs:complexType><xs:sequence><xs:element ref="inimene"/></xs:sequence></xs:complexType></xs:element>
+  <xs:element name="inimene" type="inimeseTuup"/>
+  <xs:complexType name="inimeseTuup">
+    <xs:sequence>
+      <xs:element name="nimi" type="xs:string"/>
+      <xs:element name="roll" type="xs:string"/>
+      <xs:element name="lapsed" minOccurs="0">
+        <xs:complexType><xs:sequence>
+          <xs:element ref="inimene" maxOccurs="unbounded"/>
+        </xs:sequence></xs:complexType>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="synd" type="xs:gYear" use="required"/>
+    <xs:attribute name="elukoht" type="xs:string" use="required"/>
+  </xs:complexType>
+</xs:schema>
