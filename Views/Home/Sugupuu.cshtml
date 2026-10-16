@@ -1,0 +1,14 @@
+@using System.Xml.Xsl
+@inject Microsoft.AspNetCore.Hosting.IWebHostEnvironment Env
+@{
+    var xmlFail = System.IO.Path.Combine(Env.WebRootPath, (string)ViewData["XmlFail"]!);
+    var xslFail = System.IO.Path.Combine(Env.WebRootPath, (string)ViewData["XslFail"]!);
+    var xslt = new XslCompiledTransform();
+    xslt.Load(xslFail);
+    var parameetrid = new XsltArgumentList();
+    parameetrid.AddParam("aasta", "", DateTime.Now.Year);
+    using var writer = new StringWriter();
+    xslt.Transform(xmlFail, parameetrid, writer);
+}
+<h1>@ViewData["Title"]</h1>
+@Html.Raw(writer.ToString())

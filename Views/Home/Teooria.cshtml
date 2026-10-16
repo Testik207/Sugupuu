@@ -1,0 +1,12 @@
+@{ ViewData["Title"] = "XML/XSLT teooria"; }
+<h1>XML, XSLT ja XSD</h1>
+<h2>XML</h2><p>XML hoiab andmeid elementides ja atribuutides. Minu projektis on inimese nimi elemendis nimi ning sünniaasta atribuudis synd. Lapsed asuvad oma vanema sees.</p>
+<pre>&lt;inimene synd="1967" elukoht="Keila"&gt;
+  &lt;nimi&gt;Oksana&lt;/nimi&gt;
+  &lt;roll&gt;ema&lt;/roll&gt;
+&lt;/inimene&gt;</pre>
+<h2>XSLT</h2><p>XSLT teisendab XML-i HTML-iks. XPath valib andmed. xsl:for-each läbib inimesed ja xsl:value-of kuvab väärtuse.</p>
+<ul><li>@@synd - sünniaasta atribuut</li><li>count(lapsed/inimene) - laste arv</li><li>../../nimi - vanema nimi</li><li>string-length(nimi) - nime pikkus</li><li>contains(nimi, 'a') - kas nimi sisaldab a-tähte</li></ul>
+<h2>XSD</h2><p>XSD ehk XML Schema kirjeldab lubatud elemente, atribuute ja andmetüüpe. Kõigepealt vaatan XML-i struktuuri, seejärel kirjeldan elemendid xs:sequence abil ning lisan atribuudid ja nende tüübid. Lõpuks kontrollin XML-i skeemi vastu.</p>
+<p>Sugupuu skeemis viitab lapsed uuesti inimesele. Nii saab kirjeldada mitut põlvkonda.</p>
+<h2>ASP.NET Core</h2><p>Kontroller loeb XML- ja XSLT-faili. XslCompiledTransform teeb teisenduse ning Razor-vaade näitab saadud HTML-i. Käesolev aasta antakse XSLT-le parameetrina.</p>

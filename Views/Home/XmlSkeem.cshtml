@@ -1,0 +1,80 @@
+@using System.Xml
+@inject Microsoft.AspNetCore.Hosting.IWebHostEnvironment Env
+@using System.Xml.Schema
+@using System.Net
+@using System.Text.RegularExpressions
+@{
+    ViewData["Title"] = "XML skeem";
+
+    var wwwroot = Env.WebRootPath;
+
+    // iga skeemi juurde XML failid, mida selle skeemiga kontrollitakse
+    var skeemid = new[]
+    {
+        (Xsd: "sugupuu.xsd", Failid: new[] { "ElisavetaSugupuu.xml" }),
+        (Xsd: "minuSugupuu.xsd", Failid: new[] { "MinuSugupuu.xml" })
+    };
+
+    string Varvi(string xsdFail)
+    {
+        return Regex.Replace(
+            WebUtility.HtmlEncode(System.IO.File.ReadAllText(xsdFail)),
+            @"(?<kommentaar>&lt;!--.*?--&gt;)|(?<vaartus>&quot;.*?&quot;)|(?<silt>&lt;[/?]?[\w:]+|[/?]?&gt;)|(?<atribuut>[\w:]+(?==))",
+            m => m.Groups["kommentaar"].Success ? $"<span class=\"xml-kommentaar\">{m.Value}</span>"
+               : m.Groups["vaartus"].Success ? $"<span class=\"xml-vaartus\">{m.Value}</span>"
+               : m.Groups["silt"].Success ? $"<span class=\"xml-silt\">{m.Value}</span>"
+               : $"<span class=\"xml-atribuut\">{m.Value}</span>",
+            RegexOptions.Singleline);
+    }
+
+    List<string> Kontrolli(string xsdFail, string xmlFail)
+    {
+        var vead = new List<string>();
+        var seaded = new XmlReaderSettings { ValidationType = ValidationType.Schema };
+        seaded.Schemas.Add(null, xsdFail);
+        seaded.ValidationEventHandler += (s, e) => vead.Add(e.Message);
+
+        using (var lugeja = XmlReader.Create(xmlFail, seaded))
+        {
+            while (lugeja.Read()) { }
+        }
+        return vead;
+    }
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<p>XML skeem (XSD) kirjeldab, milline peab olema XML faili struktuur.</p>
+
+@foreach (var (xsd, failid) in skeemid)
+{
+    var xsdFail = System.IO.Path.Combine(wwwroot, xsd);
+
+    <h2>@xsd</h2>
+    <pre class="xml-kood"><code>@Html.Raw(Varvi(xsdFail))</code></pre>
+
+    <h3>Valideerimine</h3>
+    <ul>
+        @foreach (var fail in failid)
+        {
+            var vead = Kontrolli(xsdFail, System.IO.Path.Combine(wwwroot, fail));
+            <li>
+                <strong>@fail</strong> -
+                @if (vead.Count == 0)
+                {
+                    <span class="text-success">vastab skeemile</span>
+                }
+                else
+                {
+                    <span class="text-danger">ei vasta skeemile</span>
+                    <ul>
+                        @foreach (var viga in vead)
+                        {
+                            <li>@viga</li>
+                        }
+                    </ul>
+                }
+            </li>
+        }
+    </ul>
+}

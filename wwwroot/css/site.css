@@ -1,0 +1,17 @@
+html { font-size: 14px; position: relative; min-height: 100%; }
+@media (min-width: 768px) { html { font-size: 16px; } }
+body { margin-bottom: 75px; }
+.box-shadow { box-shadow: 0 .25rem .75rem rgba(0,0,0,.05); }
+.footer { position: absolute; bottom: 0; width: 100%; line-height: 60px; }
+h2 { margin-top: 26px; }
+h3 { margin-top: 20px; }
+.table { margin-top: 12px; }
+.table td, .table th { vertical-align: middle; }
+.table td.roheline { background-color: #c6efce; }
+.table td.kollane { background-color: #fff2a8; }
+.table td.punane { color: #c00000; }
+.xml-kood { background: #202020; color: #eee; padding: 16px; border-radius: 5px; white-space: pre-wrap; }
+.xml-silt { color: #71b7ff; }
+.xml-vaartus { color: #e5a070; }
+.xml-atribuut { color: #a8d4ff; }
+.sugupuu ul { margin-bottom: 4px; }
