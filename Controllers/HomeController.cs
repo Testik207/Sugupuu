@@ -6,7 +6,7 @@ public class HomeController : Controller
 {
     public IActionResult Index() => View();
     public IActionResult Teooria() => View();
-    public IActionResult Kontakt() => View();
+    public IActionResult Reisid() => View();
     public IActionResult XmlSkeem() => View();
 
     public IActionResult Sugupuu()

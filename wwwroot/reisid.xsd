@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:simpleType name="raha"><xs:restriction base="xs:decimal"><xs:minInclusive value="0"/></xs:restriction></xs:simpleType>
+  <xs:element name="reisid">
+    <xs:complexType><xs:sequence>
+      <xs:element name="reis" maxOccurs="unbounded">
+        <xs:complexType><xs:sequence>
+          <xs:element name="suund"><xs:complexType><xs:sequence>
+            <xs:element name="riik" type="xs:string"/>
+            <xs:element name="kestvus" type="xs:positiveInteger"/>
+          </xs:sequence></xs:complexType></xs:element>
+          <xs:element name="transport"><xs:simpleType><xs:restriction base="xs:string">
+            <xs:enumeration value="lennureis"/><xs:enumeration value="bussireis"/>
+            <xs:enumeration value="laevareis"/><xs:enumeration value="rongireis"/>
+          </xs:restriction></xs:simpleType></xs:element>
+          <xs:element name="majutus" type="xs:string"/>
+          <xs:element name="ekskursioonid" type="xs:string"/>
+          <xs:element name="muudKulud" type="raha"/>
+          <xs:element name="hinnang"><xs:simpleType><xs:restriction base="xs:integer">
+            <xs:minInclusive value="1"/><xs:maxInclusive value="10"/>
+          </xs:restriction></xs:simpleType></xs:element>
+          <xs:element name="reisihind" type="raha"/>
+        </xs:sequence></xs:complexType>
+      </xs:element>
+    </xs:sequence></xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -1,0 +1,75 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<reisid xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="reisid.xsd">
+  <reis>
+    <suund>
+      <riik>Hispaania</riik>
+      <kestvus>10</kestvus>
+    </suund>
+    <transport>lennureis</transport>
+    <majutus>Hotell</majutus>
+    <ekskursioonid>Barcelona vanalinn</ekskursioonid>
+    <muudKulud>150</muudKulud>
+    <hinnang>9</hinnang>
+    <reisihind>800</reisihind>
+  </reis>
+  <reis>
+    <suund>
+      <riik>Itaalia</riik>
+      <kestvus>5</kestvus>
+    </suund>
+    <transport>bussireis</transport>
+    <majutus>Hostel</majutus>
+    <ekskursioonid>Colosseum</ekskursioonid>
+    <muudKulud>90</muudKulud>
+    <hinnang>7</hinnang>
+    <reisihind>450</reisihind>
+  </reis>
+  <reis>
+    <suund>
+      <riik>Norra</riik>
+      <kestvus>8</kestvus>
+    </suund>
+    <transport>lennureis</transport>
+    <majutus>Puhkemaja</majutus>
+    <ekskursioonid>Fjordide kruiis</ekskursioonid>
+    <muudKulud>200</muudKulud>
+    <hinnang>10</hinnang>
+    <reisihind>1100</reisihind>
+  </reis>
+  <reis>
+    <suund>
+      <riik>Kreeka</riik>
+      <kestvus>14</kestvus>
+    </suund>
+    <transport>lennureis</transport>
+    <majutus>Hotell</majutus>
+    <ekskursioonid>Ateena Akropol</ekskursioonid>
+    <muudKulud>180</muudKulud>
+    <hinnang>8</hinnang>
+    <reisihind>950</reisihind>
+  </reis>
+  <reis>
+    <suund>
+      <riik>Soome</riik>
+      <kestvus>2</kestvus>
+    </suund>
+    <transport>laevareis</transport>
+    <majutus>Hotell</majutus>
+    <ekskursioonid>Helsingi kesklinn</ekskursioonid>
+    <muudKulud>50</muudKulud>
+    <hinnang>6</hinnang>
+    <reisihind>180</reisihind>
+  </reis>
+  <reis>
+    <suund>
+      <riik>Prantsusmaa</riik>
+      <kestvus>7</kestvus>
+    </suund>
+    <transport>lennureis</transport>
+    <majutus>Korter</majutus>
+    <ekskursioonid>Louvre</ekskursioonid>
+    <muudKulud>120</muudKulud>
+    <hinnang>8</hinnang>
+    <reisihind>700</reisihind>
+  </reis>
+</reisid>

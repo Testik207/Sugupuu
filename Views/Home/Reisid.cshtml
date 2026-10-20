@@ -1,0 +1,13 @@
+@using System.Xml.Xsl
+@inject Microsoft.AspNetCore.Hosting.IWebHostEnvironment Env
+@{
+    ViewData["Title"] = "Reisid";
+    var xmlFail = System.IO.Path.Combine(Env.WebRootPath, "reisid.xml");
+    var xslFail = System.IO.Path.Combine(Env.WebRootPath, "reisidParing.xslt");
+    var xslt = new XslCompiledTransform();
+    xslt.Load(xslFail);
+    using var writer = new StringWriter();
+    xslt.Transform(xmlFail, null, writer);
+}
+<h1>Reisid</h1>
+@Html.Raw(writer.ToString())

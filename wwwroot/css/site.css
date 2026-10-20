@@ -8,10 +8,17 @@ h3 { margin-top: 20px; }
 .table { margin-top: 12px; }
 .table td, .table th { vertical-align: middle; }
 .table td.roheline { background-color: #c6efce; }
-.table td.kollane { background-color: #fff2a8; }
+.table td.kollane { background-color: #ffff00; }
 .table td.punane { color: #c00000; }
 .xml-kood { background: #202020; color: #eee; padding: 16px; border-radius: 5px; white-space: pre-wrap; }
 .xml-silt { color: #71b7ff; }
 .xml-vaartus { color: #e5a070; }
 .xml-atribuut { color: #a8d4ff; }
 .sugupuu ul { margin-bottom: 4px; }
+
+.reisi-suund { background-color: #ffff00; padding: 2px 4px; }
+.pikk-reis { color: #b00020; }
+.reiside-tabel .paaritu > td { background-color: #fff; }
+.reiside-tabel .paaris > td { background-color: #eef2f6; }
+
+.reisi-suund-rida { background-color: #ffff00; }
